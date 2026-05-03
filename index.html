@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Estudio Cubelas | Carpintería & Albañilería Artesanal</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0c0f;
+            color: #ecedee;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* fondo sutil con textura de madera / obra */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* Header & Hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 1rem 0 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(4px);
+            padding: 0.6rem 1.6rem;
+            border-radius: 80px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 215, 150, 0.2);
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: #d4af6a;
+        }
+
+        .logo span {
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #f5e7d3, #c9aa5f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #c9aa6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin: 0 auto;
+            color: #a0a5ad;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: #171b1f;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #d4af6a;
+            border: 1px solid #2a2e34;
+        }
+
+        /* secciones de tarjetas */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 3rem 0 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid #d4af6a;
+            padding-left: 1.2rem;
+        }
+
+        .section-title i {
+            color: #d4af6a;
+            font-size: 1.7rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 2rem;
+        }
+
+        /* card moderna */
+        .card {
+            background: #111417;
+            border-radius: 28px;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.3s;
+            border: 1px solid #252a30;
+            backdrop-filter: blur(2px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.6);
+            border-color: #3a3f46;
+        }
+
+        .card-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center 30%;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 1rem;
+        }
+
+        /* overlay de version */
+        .version-tag {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.9rem;
+            border-radius: 50px;
+            color: #e3c88a;
+            border: 1px solid rgba(212, 175, 106, 0.5);
+            letter-spacing: 0.3px;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .card-title span:first-child {
+            background: linear-gradient(135deg, #fff, #cfb26e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card-desc {
+            color: #9aa1ab;
+            font-size: 0.85rem;
+            margin: 0.6rem 0 1rem;
+            line-height: 1.45;
+        }
+
+        .btn-link {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1f2329;
+            padding: 0.7rem 1.2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #ecedee;
+            transition: all 0.2s;
+            border: 1px solid #2d333a;
+            gap: 8px;
+        }
+
+        .btn-link i {
+            transition: transform 0.2s;
+            font-size: 0.8rem;
+        }
+
+        .btn-link:hover {
+            background: #2b3139;
+            border-color: #d4af6a;
+            color: #ffefcf;
+        }
+
+        .btn-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* grupo de cards con imágenes temáticas */
+        .carpentry-img {
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+        }
+        .carpentry-img2 { background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/7071961/pexels-photo-7071961.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .carpentry-img3 { background-image: linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/2284162/pexels-photo-2284162.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .carpentry-img4 { background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/3757142/pexels-photo-3757142.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .carpentry-img5 { background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/6473659/pexels-photo-6473659.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .carpentry-img6 { background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/1427423/pexels-photo-1427423.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .carpentry-img7 { background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        
+        .masonry-img { background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/2089698/pexels-photo-2089698.jpeg?auto=compress&cs=tinysrgb&w=600'); background-position: center 60%;}
+        .masonry-img2 { background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/2767297/pexels-photo-2767297.jpeg?auto=compress&cs=tinysrgb&w=600');}
+        .masonry-img3 { background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/6473643/pexels-photo-6473643.jpeg?auto=compress&cs=tinysrgb&w=600');}
+        .masonry-img4 { background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/2690772/pexels-photo-2690772.jpeg?auto=compress&cs=tinysrgb&w=600');}
+        .masonry-img5 { background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/7102676/pexels-photo-7102676.jpeg?auto=compress&cs=tinysrgb&w=600');}
+        .masonry-img6 { background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/2214570/pexels-photo-2214570.jpeg?auto=compress&cs=tinysrgb&w=600');}
+        .masonry-img7 { background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/2767249/pexels-photo-2767249.jpeg?auto=compress&cs=tinysrgb&w=600');}
+
+        /* footer */
+        .footer-note {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            color: #6c727a;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            .card-title {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <div class="logo">
+            <i class="fas fa-tools"></i>
+            <span>cubelas · estudio</span>
+        </div>
+        <h1>Artesanía en madera y obra</h1>
+        <p>Explora todas las versiones de los portafolios de carpintería y albañilería. <br> Diseños únicos, calidad profesional y calidez artesanal.</p>
+        <div class="badge-container">
+            <span class="badge"><i class="fas fa-cube"></i> Muebles a medida</span>
+            <span class="badge"><i class="fas fa-brick"></i> Remodelación integral</span>
+            <span class="badge"><i class="fas fa-pencil-ruler"></i> Lakeland, Florida</span>
+        </div>
+    </div>
+
+    <!-- SECCIÓN CARPINTERÍA: 7 enlaces -->
+    <div class="section-title">
+        <i class="fas fa-tree"></i>
+        <span>Carpintería de autor · Evolución creativa</span>
+    </div>
+    <div class="cards-grid">
+        <!-- basado en el contenido: versiones v1, v1.1, v2, v2.1, v3, v3.1, v4 -->
+        <div class="card">
+            <div class="card-img carpentry-img"><span class="version-tag">v1 · Esencia artesanal</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Carpintería Artesanal</span></div>
+                <div class="card-desc">Madera que convierte espacios. Cocinas, comedores y muebles a medida con diseño elegante.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/carpintero/v1/" target="_blank" rel="noopener noreferrer" class="btn-link">Ver portafolio <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img carpentry-img2"><span class="version-tag">v1.1 · Madera & hogar</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Madera que convierte casas</span></div>
+                <div class="card-desc">Desde 2009, tradición y acabados nobles. Presupuesto cerrado y garantía de 5 años.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/carpintero/v1.1/" target="_blank" class="btn-link">Ver portafolio <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img carpentry-img3"><span class="version-tag">v2 · De autor</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Carpintería de autor</span></div>
+                <div class="card-desc">Piezas únicas, legado familiar. Roble, nogal, cerezo. Diseño interior en Lakeland.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/carpintero/v2/" target="_blank" class="btn-link">Explorar colección <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img carpentry-img4"><span class="version-tag">v2.1 · Muebles firmados</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Edición especial diseño</span></div>
+                <div class="card-desc">Estanterías flotantes, islas y ambientes únicos. Atención personalizada en cada trazo.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/carpintero/v2.1/" target="_blank" class="btn-link">Ver galería <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img carpentry-img5"><span class="version-tag">v3 · Taller contemporáneo</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Innovación & tradición</span></div>
+                <div class="card-desc">Cocinas, bibliotecas y muebles modulares con acabados premium. Calidad garantizada.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/carpintero/v3/" target="_blank" class="btn-link">Descubrir v3 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img carpentry-img6"><span class="version-tag">v3.1 · Narrativa en madera</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Matices y materiales nobles</span></div>
+                <div class="card-desc">Diseño a medida para cada rincón. Armarios empotrados, recibidores con estilo.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/carpintero/v3.1/" target="_blank" class="btn-link">Explorar v3.1 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img carpentry-img7"><span class="version-tag">v4 · Colección atemporal</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Esencia & permanencia</span></div>
+                <div class="card-desc">Última versión: alta carpintería residencial. Estilos que trascienden modas.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/carpintero/v4/" target="_blank" class="btn-link">Ver v4 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN ALBAÑILERÍA: 7 enlaces -->
+    <div class="section-title">
+        <i class="fas fa-hard-hat"></i>
+        <span>Albañilería & Remodelación · Ofício y solidez</span>
+    </div>
+    <div class="cards-grid">
+        <div class="card">
+            <div class="card-img masonry-img"><span class="version-tag">v1 · Fundamentos</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Maestro albañil v1</span></div>
+                <div class="card-drag-desc">Trabajos de interiores y exteriores, drywall, pisos y patios. Profesionalismo garantizado.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/albanil/v1/" target="_blank" class="btn-link">Consultar obra <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img masonry-img2"><span class="version-tag">v1.1 · Acabados precisos</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Remodelación experta</span></div>
+                <div class="card-desc">Renovaciones integrales, baños, cocinas, fachadas. Atención al detalle.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/albanil/v1.1/" target="_blank" class="btn-link">Ver proyectos <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img masonry-img3"><span class="version-tag">v2 · Confianza total</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Maestro Cubela · v2</span></div>
+                <div class="card-desc">15+ años de experiencia. Viviendas, residencias, transformaciones interiores impecables.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/albanil/v2/" target="_blank" class="btn-link">Saber más <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img masonry-img4"><span class="version-tag">v2.1 · Calidad residencial</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Detalle constructivo</span></div>
+                <div class="card-desc">Patios, porches, muros de contención y entradas. Trabajo garantizado.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/albanil/v2.1/" target="_blank" class="btn-link">Portafolio v2.1 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img masonry-img5"><span class="version-tag">v3 · Albañilería artesanal</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Oficio residencial</span></div>
+                <div class="card-desc">Remodelación de cocinas, baños, pisos laminados. Presupuesto sin compromiso.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/albanil/v3/" target="_blank" class="btn-link">Explorar v3 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img masonry-img6"><span class="version-tag">v3.1 · Interiores & exteriores</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Maestro de obra</span></div>
+                <div class="card-desc">Drywall, pintura, concreto estampado. Proyectos recientes en Lakeland.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/albanil/v3.1/" target="_blank" class="btn-link">Ver actualización <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img masonry-img7"><span class="version-tag">v4 · Legado constructivo</span></div>
+            <div class="card-content">
+                <div class="card-title"><span>Maestro albañil v4</span></div>
+                <div class="card-desc">Última versión: remodelaciones completas, entrada de concreto, fachadas.</div>
+                <a href="https://amnavarrodev.github.io/cubelas/albanil/v4/" target="_blank" class="btn-link">Acceder a v4 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pequeña nota inspirada en el contenido de las páginas (texto contextual) -->
+    <div style="margin-top: 3rem; background: #0e1217; border-radius: 2rem; padding: 1.8rem; border: 1px solid #262b31;">
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center;">
+            <div style="max-width: 500px;">
+                <h3 style="color: #dcb870; margin-bottom: 0.5rem;"><i class="fas fa-ruler-combined"></i> Hecho a mano, desde el taller</h3>
+                <p style="color: #b5bbc4;">Cada proyecto de carpintería nace de una conversación y cada obra de albañilería se ejecuta con precisión artesanal. En Cubelas unimos tradición y técnicas modernas para crear espacios que inspiran. Lakeland, Florida.</p>
+            </div>
+            <div>
+                <div style="display: flex; gap: 1rem;">
+                    <div><i class="fas fa-trowel"></i> <span style="font-weight: 500;">Garantía</span><br><span style="font-size: 0.8rem;">5 años en estructuras</span></div>
+                    <div><i class="fas fa-clock"></i> <span style="font-weight: 500;">Respuesta 24h</span><br><span style="font-size: 0.8rem;">presupuesto cerrado</span></div>
+                    <div><i class="fas fa-leaf"></i> <span style="font-weight: 500;">Maderas nobles</span><br><span style="font-size: 0.8rem;">roble, nogal, cerezo</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <i class="fas fa-cube"></i> Portafolio completo de cubelas · Versiones evolutivas de carpintería y albañilería residencial <br>
+        © 2025 Estudio Cubelas · Diseño responsivo con enfoque artesanal
+    </div>
+</div>
+</body>
+</html>

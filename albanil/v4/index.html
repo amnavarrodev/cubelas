@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Cubela | Maestro Albañil • Lakeland, FL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --azul-profundo: #1e3a4d;
+            --gris-azulado: #2c4a5a;
+            --arena: #d4a96a;
+            --arena-claro: #e8cfaa;
+            --blanco: #ffffff;
+            --gris-claro: #f4f6f8;
+            --texto: #2c2c2c;
+            --texto-suave: #5a6c7a;
+            --sombra: 0 12px 32px rgba(0, 0, 0, 0.08);
+            --borde: #e2e8ef;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--gris-claro);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* Header */
+        header {
+            background: var(--blanco);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icono {
+            background: var(--arena);
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+        .logo-texto .nombre-empresa {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--azul-profundo);
+            letter-spacing: -0.3px;
+        }
+        .logo-texto .especialidad {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--texto-suave);
+            font-weight: 600;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--texto);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--arena);
+        }
+        .btn-presupuesto {
+            background: var(--azul-profundo);
+            color: white !important;
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.25s;
+            box-shadow: 0 6px 18px rgba(30, 58, 77, 0.2);
+        }
+        .btn-presupuesto:hover {
+            background: var(--gris-azulado);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(30, 58, 77, 0.3);
+            color: white !important;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #eef3f7 0%, #ffffff 100%);
+            padding: 70px 0 60px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 45px;
+        }
+        .hero-texto {
+            flex: 1 1 400px;
+        }
+        .hero-texto .chip {
+            display: inline-block;
+            background: white;
+            border: 1px solid var(--borde);
+            padding: 7px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--texto-suave);
+            margin-bottom: 20px;
+        }
+        .hero-texto .chip i {
+            color: var(--arena);
+            margin-right: 6px;
+        }
+        .hero-texto h1 {
+            font-size: 3.2rem;
+            font-weight: 750;
+            line-height: 1.18;
+            color: var(--azul-profundo);
+            margin-bottom: 18px;
+            letter-spacing: -0.03em;
+        }
+        .hero-texto h1 .resaltado {
+            color: var(--arena);
+        }
+        .hero-texto .descripcion {
+            font-size: 1.15rem;
+            color: var(--texto-suave);
+            margin-bottom: 28px;
+            max-width: 480px;
+        }
+        .hero-imagen {
+            flex: 1 1 420px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.12);
+            height: 370px;
+            position: relative;
+        }
+        .hero-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-imagen .overlay-texto {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(6px);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        section {
+            padding: 70px 0;
+        }
+        .encabezado-seccion {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .encabezado-seccion h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--azul-profundo);
+            margin-bottom: 10px;
+        }
+        .encabezado-seccion h2 i {
+            color: var(--arena);
+            margin-right: 10px;
+        }
+        .encabezado-seccion p {
+            color: var(--texto-suave);
+            font-size: 1.05rem;
+        }
+
+        /* Servicios */
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+        .tarjeta-servicio {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 24px;
+            text-align: center;
+            border: 1px solid var(--borde);
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .tarjeta-servicio:hover {
+            border-color: var(--arena-claro);
+            box-shadow: var(--sombra);
+            transform: translateY(-6px);
+        }
+        .tarjeta-servicio .icono {
+            font-size: 2.4rem;
+            color: var(--arena);
+            margin-bottom: 16px;
+        }
+        .tarjeta-servicio h3 {
+            font-size: 1.2rem;
+            color: var(--azul-profundo);
+            margin-bottom: 8px;
+        }
+        .tarjeta-servicio p {
+            color: var(--texto-suave);
+            font-size: 0.9rem;
+        }
+
+        /* Galería con imágenes reales */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+            margin: 30px 0;
+        }
+        .foto-real {
+            border-radius: 22px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+            transition: 0.3s;
+            border: 1px solid var(--borde);
+        }
+        .foto-real:hover {
+            transform: scale(1.02);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+        }
+        .foto-real img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .foto-real .pie-foto {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 18px 16px 14px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Testimonios */
+        .testimonios-container {
+            background: white;
+            border-radius: 28px;
+            padding: 40px 35px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.03);
+            margin: 50px 0;
+        }
+        .testimonio {
+            flex: 1 1 240px;
+        }
+        .estrellas {
+            color: #f0b84d;
+            margin-bottom: 8px;
+        }
+        .testimonio p {
+            font-style: italic;
+            color: var(--texto-suave);
+        }
+        .testimonio strong {
+            display: block;
+            margin-top: 10px;
+            color: var(--azul-profundo);
+        }
+
+        /* Contacto */
+        .contacto-bloque {
+            background: var(--azul-profundo);
+            border-radius: 30px;
+            padding: 45px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+        }
+        .contacto-info p {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .contacto-info i {
+            color: var(--arena-claro);
+            width: 22px;
+        }
+        .contacto-info a {
+            color: white;
+            text-decoration: none;
+        }
+        .horario {
+            background: rgba(255,255,255,0.12);
+            padding: 22px 28px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px 0 25px;
+            color: var(--texto-suave);
+            border-top: 1px solid var(--borde);
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 720px) {
+            .hero-texto h1 {
+                font-size: 2.4rem;
+            }
+            .nav-bar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-bar">
+            <div class="logo">
+                <div class="logo-icono"><i class="fas fa-trowel-bricks"></i></div>
+                <div class="logo-texto">
+                    <span class="nombre-empresa">CUBELA</span>
+                    <span class="especialidad">ALBAÑILERÍA PROFESIONAL</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#galeria">Portafolio</a>
+                <a href="#contacto" class="btn-presupuesto"><i class="fas fa-envelope"></i> Presupuesto</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero con imagen real -->
+        <section class="hero">
+            <div class="hero-texto">
+                <div class="chip"><i class="fas fa-map-marker-alt"></i> Lakeland, Florida</div>
+                <h1>Maestro <span class="resaltado">Albañil</span> Residencial</h1>
+                <p class="descripcion">El Sr. Cubela transforma espacios con trabajos de albañilería en interiores y exteriores para viviendas y residencias.</p>
+                <p style="color: var(--texto-suave);"><i class="fas fa-check-circle" style="color:var(--arena);"></i> <strong>¿Cómo se llama lo que hace?</strong> Albañil Residencial Integral · Remodelaciones completas.</p>
+            </div>
+            <div class="hero-imagen">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=500&fit=crop" alt="Albañil trabajando en construcción residencial">
+                <div class="overlay-texto"><i class="fas fa-hard-hat"></i> Trabajo profesional garantizado</div>
+            </div>
+        </section>
+
+        <!-- Servicios -->
+        <section id="servicios">
+            <div class="encabezado-seccion">
+                <h2><i class="fas fa-tools"></i> Servicios de Albañilería</h2>
+                <p>Especialista en interiores y exteriores para hogares y residencias en Lakeland.</p>
+            </div>
+            <div class="grid-servicios">
+                <div class="tarjeta-servicio">
+                    <div class="icono"><i class="fas fa-couch"></i></div>
+                    <h3>Interiores</h3>
+                    <p>Drywall, pintura, pisos, baños, cocinas y remodelaciones completas.</p>
+                </div>
+                <div class="tarjeta-servicio">
+                    <div class="icono"><i class="fas fa-sun"></i></div>
+                    <h3>Exteriores</h3>
+                    <p>Patios, entradas de concreto, fachadas y muros de contención.</p>
+                </div>
+                <div class="tarjeta-servicio">
+                    <div class="icono"><i class="fas fa-house-chimney"></i></div>
+                    <h3>Viviendas</h3>
+                    <p>Trabajos en casas unifamiliares, ampliaciones y mejoras.</p>
+                </div>
+                <div class="tarjeta-servicio">
+                    <div class="icono"><i class="fas fa-building"></i></div>
+                    <h3>Residencias</h3>
+                    <p>Mantenimiento y renovación en complejos residenciales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galería / Portafolio con imágenes reales -->
+        <section id="galeria">
+            <div class="encabezado-seccion">
+                <h2><i class="fas fa-images"></i> Proyectos Realizados</h2>
+                <p>Muestras de trabajos de albañilería en interiores y exteriores. Clientes satisfechos en Lakeland, FL.</p>
+            </div>
+            <div class="galeria-grid">
+                <div class="foto-real">
+                    <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&h=400&fit=crop" alt="Remodelación de baño moderno">
+                    <div class="pie-foto"><i class="fas fa-shower"></i> Remodelación de baño</div>
+                </div>
+                <div class="foto-real">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop" alt="Patio exterior con piso de concreto">
+                    <div class="pie-foto"><i class="fas fa-tree"></i> Patio exterior</div>
+                </div>
+                <div class="foto-real">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop" alt="Sala de estar renovada">
+                    <div class="pie-foto"><i class="fas fa-home"></i> Interior residencial</div>
+                </div>
+                <div class="foto-real">
+                    <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=600&h=400&fit=crop" alt="Fachada de casa remodelada">
+                    <div class="pie-foto"><i class="fas fa-building"></i> Fachada exterior</div>
+                </div>
+            </div>
+
+            <!-- Testimonios -->
+            <div class="testimonios-container">
+                <div class="testimonio">
+                    <div class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"El Sr. Cubela remodeló nuestro baño principal y quedó espectacular. Muy profesional, limpio y cumplió los tiempos. Lo recomendamos."</p>
+                    <strong>— Familia García, Lakeland</strong>
+                </div>
+                <div class="testimonio">
+                    <div class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Contratamos a Cubela para el patio trasero y la entrada de concreto. Trabajo impecable, precio justo y atención detallista."</p>
+                    <strong>— Robert Martínez, South Lakeland</strong>
+                </div>
+                <div class="testimonio">
+                    <div class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Renovó completamente la cocina y los pisos de la sala. El Sr. Cubela es un verdadero maestro albañil. Muy satisfechos."</p>
+                    <strong>— Elena Torres, Lakeland</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto">
+            <div class="contacto-bloque">
+                <div class="contacto-info">
+                    <h2 style="margin-bottom: 18px; color:white;"><i class="fas fa-phone-alt" style="color:var(--arena-claro);"></i> Solicite su presupuesto</h2>
+                    <p style="color:#d0dce4; margin-bottom: 20px;">Sin compromiso. Atendemos proyectos en Lakeland y alrededores.</p>
+                    <p><i class="fas fa-user-circle"></i> <strong>Sr. Cubela</strong> · Maestro Albañil</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lakeland, FL</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+18635552190">(863) 555-2190</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:cubela.obras@lakelandfl.com">cubela.obras@lakelandfl.com</a></p>
+                </div>
+                <div class="horario">
+                    <p><i class="far fa-clock" style="color:var(--arena-claro);"></i> <strong>Horario de atención</strong></p>
+                    <p>Lunes a Viernes: 7:00 am – 5:00 pm</p>
+                    <p>Sábados: 8:00 am – 2:00 pm</p>
+                    <p style="margin-top: 12px; color:var(--arena-claro);"><i class="fas fa-check-circle"></i> Presupuestos gratuitos</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>© 2025 Cubela · Albañilería Residencial · Lakeland, FL</p>
+        <p><i class="fas fa-shield-alt"></i> Interiores & Exteriores · Clientes satisfechos · Trabajo garantizado</p>
+    </footer>
+</body>
+</html>

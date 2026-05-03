@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Cubela | Albañilería Premium • Lakeland, FL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --dorado: #c9974e;
+            --oscuro: #1a1a1a;
+            --gris-oscuro: #2a2a2a;
+            --gris-medio: #3d3d3d;
+            --blanco-hueso: #f5f0e8;
+            --texto-claro: #cfcfcf;
+            --sombra-dorada: 0 8px 30px rgba(201, 151, 78, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--oscuro);
+            color: var(--blanco-hueso);
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* Navegación estilo flotante */
+        header {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            margin-top: 20px;
+        }
+
+        .nav-glass {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 60px;
+            padding: 14px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .logo-simbolo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+        .logo-simbolo span {
+            color: var(--dorado);
+            font-weight: 300;
+        }
+        .logo-simbolo .subtitulo-logo {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #aaa;
+            margin-top: -2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #ccc;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: var(--dorado);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--dorado);
+            transition: 0.25s;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-dorado {
+            background: var(--dorado);
+            color: #0f0f0f !important;
+            padding: 12px 26px;
+            border-radius: 40px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: all 0.25s;
+            box-shadow: 0 6px 18px rgba(201, 151, 78, 0.3);
+        }
+        .btn-dorado:hover {
+            background: #dba85a;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(201, 151, 78, 0.45);
+        }
+
+        /* Hero oscuro con acento */
+        .hero {
+            padding: 80px 0 60px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-izq {
+            flex: 1 1 400px;
+        }
+        .hero-izq .etiqueta {
+            display: inline-block;
+            background: rgba(201, 151, 78, 0.15);
+            color: var(--dorado);
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-bottom: 24px;
+            border: 1px solid rgba(201, 151, 78, 0.3);
+        }
+        .hero-izq h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .hero-izq h1 .dorado {
+            color: var(--dorado);
+        }
+        .hero-izq .descripcion {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 25px;
+        }
+        .stat-item {
+            text-align: left;
+        }
+        .stat-num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dorado);
+        }
+
+        .hero-der {
+            flex: 1 1 380px;
+            background: var(--gris-oscuro);
+            border-radius: 40px;
+            height: 380px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" fill="none"><rect width="400" height="350" fill="%232a2a2a"/><path d="M50 250 L150 100 L250 180 L350 60" stroke="%23c9974e" stroke-width="6" fill="none" opacity="0.7"/><circle cx="120" cy="200" r="25" fill="%23c9974e" opacity="0.2"/><rect x="200" y="220" width="120" height="90" rx="15" fill="%233d3d3d" stroke="%23c9974e" stroke-width="2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 30px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.6);
+            position: relative;
+            border: 1px solid #3a3a3a;
+        }
+        .hero-der .texto-overlay {
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(5px);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: white;
+            border-left: 4px solid var(--dorado);
+        }
+
+        section {
+            padding: 70px 0;
+        }
+        h2.seccion-titulo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+        h2.seccion-titulo i {
+            color: var(--dorado);
+            margin-right: 12px;
+        }
+        .sub {
+            color: #aaaaaa;
+            margin-bottom: 45px;
+            font-size: 1.1rem;
+        }
+
+        /* Grid de servicios - tarjetas oscuras */
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+        .card-servicio {
+            background: var(--gris-oscuro);
+            border: 1px solid #3f3f3f;
+            border-radius: 24px;
+            padding: 35px 25px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .card-servicio:hover {
+            border-color: var(--dorado);
+            background: #2f2f2f;
+            transform: translateY(-6px);
+            box-shadow: var(--sombra-dorada);
+        }
+        .card-servicio i {
+            font-size: 2.5rem;
+            color: var(--dorado);
+            margin-bottom: 20px;
+        }
+        .card-servicio h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        /* Portafolio galería elegante */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 22px;
+            margin: 30px 0 20px;
+        }
+        .foto-item {
+            background: #2c2c2c;
+            border-radius: 28px;
+            height: 260px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #3a3a3a;
+            transition: 0.3s;
+        }
+        .foto-item:hover {
+            border-color: var(--dorado);
+            transform: scale(1.02);
+        }
+        .foto-item .pie-foto {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            padding: 20px 15px 14px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+        .img1 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"><rect width="300" height="200" fill="%23303030"/><circle cx="80" cy="70" r="28" fill="%23c9974e" opacity="0.4"/><rect x="110" y="80" width="120" height="85" fill="%234a4a4a"/></svg>'); }
+        .img2 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"><rect width="300" height="200" fill="%23353535"/><polygon points="150,25 240,105 60,105" fill="%23c9974e" opacity="0.3"/><rect x="80" y="105" width="140" height="70" fill="%23454545"/></svg>'); }
+        .img3 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"><rect width="300" height="200" fill="%232f2f2f"/><rect x="60" y="50" width="170" height="110" fill="%23c9974e" opacity="0.25"/><circle cx="150" cy="105" r="30" fill="%233e3e3e"/></svg>'); }
+        .img4 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"><rect width="300" height="200" fill="%232a2a2a"/><path d="M50 150 L150 40 L250 130" stroke="%23c9974e" stroke-width="5" fill="none"/><rect x="110" y="100" width="80" height="70" fill="%233a3a3a"/></svg>'); }
+
+        /* Testimonios estilo cita */
+        .testimonio-block {
+            background: var(--gris-oscuro);
+            border-radius: 32px;
+            padding: 40px;
+            margin: 50px 0;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            align-items: center;
+            border: 1px solid #3f3f3f;
+        }
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--dorado);
+            opacity: 0.7;
+        }
+        .testimonio-contenido {
+            flex: 1;
+            font-size: 1.15rem;
+            color: #d4d4d4;
+        }
+        .estrellas {
+            color: #f0b84d;
+            margin-bottom: 10px;
+        }
+
+        .contacto-panel {
+            background: #202020;
+            border-radius: 36px;
+            padding: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 35px;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #3a3a3a;
+        }
+        .contacto-detalle p {
+            margin: 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 1.05rem;
+        }
+        .contacto-detalle i {
+            color: var(--dorado);
+            width: 24px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px 0 25px;
+            color: #777;
+            border-top: 1px solid #2a2a2a;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 700px) {
+            .nav-glass {
+                flex-direction: column;
+                gap: 14px;
+            }
+            .hero-izq h1 {
+                font-size: 2.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-glass">
+            <div class="logo-simbolo">
+                CUBELA<span>•</span>
+                <span class="subtitulo-logo">Albañilería & Remodelación</span>
+            </div>
+            <div class="nav-links">
+                <a href="#">Inicio</a>
+                <a href="#quehace">Especialidad</a>
+                <a href="#galeria">Portafolio</a>
+                <a href="#contacto" class="btn-dorado"><i class="fas fa-comment-dots"></i> Presupuesto</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-izq">
+                <div class="etiqueta"><i class="fas fa-map-pin"></i> Lakeland, Florida</div>
+                <h1>Maestro <span class="dorado">Albañil</span> de confianza</h1>
+                <p class="descripcion">El Sr. Cubela transforma espacios interiores y exteriores en viviendas y residencias. Oficio artesanal, resultados impecables.</p>
+                <div class="stats">
+                    <div class="stat-item"><span class="stat-num">+15</span><br><small>años experiencia</small></div>
+                    <div class="stat-item"><span class="stat-num">100%</span><br><small>clientes satisfechos</small></div>
+                </div>
+            </div>
+            <div class="hero-der">
+                <div class="texto-overlay"><i class="fas fa-trowel"></i> INTERIORES & EXTERIORES</div>
+            </div>
+        </section>
+
+        <!-- ¿Cómo se llama lo que hace? -->
+        <section id="quehace">
+            <h2 class="seccion-titulo"><i class="fas fa-hard-hat"></i> ¿Qué hace el Sr. Cubela?</h2>
+            <p class="sub">Se le conoce como <strong style="color:var(--dorado);">Albañil Residencial Integral</strong>. Realiza trabajos de albañilería, remodelación y acabados para hogares.</p>
+            <div class="grid-servicios">
+                <div class="card-servicio">
+                    <i class="fas fa-couch"></i>
+                    <h3>Interiores</h3>
+                    <p>Drywall, pintura, baños, cocinas, pisos y remodelaciones completas.</p>
+                </div>
+                <div class="card-servicio">
+                    <i class="fas fa-sun"></i>
+                    <h3>Exteriores</h3>
+                    <p>Patios, terrazas, entradas, fachadas y muros de contención.</p>
+                </div>
+                <div class="card-servicio">
+                    <i class="fas fa-house-user"></i>
+                    <h3>Viviendas</h3>
+                    <p>Trabajos personalizados en casas unifamiliares y ampliaciones.</p>
+                </div>
+                <div class="card-servicio">
+                    <i class="fas fa-building"></i>
+                    <h3>Residencias</h3>
+                    <p>Mantenimiento y renovación para propiedades residenciales de nivel.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portafolio / Galería -->
+        <section id="galeria">
+            <h2 class="seccion-titulo"><i class="fas fa-images"></i> Proyectos realizados</h2>
+            <p class="sub">Cada trabajo respaldado por la satisfacción de nuestros clientes en Lakeland.</p>
+            <div class="galeria-grid">
+                <div class="foto-item img1"><div class="pie-foto">Remodelación de sala · Interior</div></div>
+                <div class="foto-item img2"><div class="pie-foto">Patio trasero · Exterior</div></div>
+                <div class="foto-item img3"><div class="pie-foto">Baño principal · Acabados</div></div>
+                <div class="foto-item img4"><div class="pie-foto">Fachada residencial</div></div>
+            </div>
+
+            <div class="testimonio-block">
+                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                <div class="testimonio-contenido">
+                    <div class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Contratamos al Sr. Cubela para renovar nuestra cocina y el piso del porche. Quedó espectacular, muy profesional y limpio. Sin duda lo volveremos a llamar."</p>
+                    <strong style="color:#ddd;">— Elena Vargas, Lakeland FL</strong>
+                </div>
+                <div class="testimonio-contenido">
+                    <div class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Trabajo de albañilería exterior impecable. El Sr. Cubela es detallista y cumple los plazos. Muy satisfecho con el muro y la entrada."</p>
+                    <strong style="color:#ddd;">— Robert Jiménez, Lakeland</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto">
+            <div class="contacto-panel">
+                <div>
+                    <h2 class="seccion-titulo" style="margin-top:0;"><i class="fas fa-phone-alt"></i> Hablemos de su proyecto</h2>
+                    <p style="color:#ccc; margin-bottom: 25px;">Presupuesto sin compromiso · Lakeland y alrededores.</p>
+                    <div class="contacto-detalle">
+                        <p><i class="fas fa-user"></i> <strong>Sr. Cubela</strong> (Maestro Albañil)</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Lakeland, FL</p>
+                        <p><i class="fas fa-phone"></i> <strong>(863) 555-2190</strong></p>
+                        <p><i class="fas fa-envelope"></i> cubela.contratista@lakelandfl.com</p>
+                    </div>
+                </div>
+                <div style="background:#2a2a2a; padding: 25px 30px; border-radius: 28px;">
+                    <p style="font-weight: 600; color:var(--dorado);"><i class="far fa-clock"></i> Horario de atención</p>
+                    <p>Lun–Vie: 7:00 am – 5:00 pm</p>
+                    <p>Sábados: 8:00 am – 2:00 pm</p>
+                    <p style="margin-top: 15px; font-style: italic;">"Trabajo garantizado"</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>© 2025 Cubela · Albañilería Residencial · Lakeland, FL</p>
+        <p><i class="fas fa-shield-alt"></i> Interiores & Exteriores · Clientes satisfechos, proyectos reales.</p>
+    </footer>
+</body>
+</html>

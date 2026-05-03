@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Cubela | Carpintería de Autor · Lakeland FL</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Outfit:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Estudio<span>Cubela</span></a>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#filosofia">Filosofía</a></li>
+                <li><a href="#trabajos">Trabajos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO CON IMAGEN DE FONDO -->
+    <section id="hero" class="hero-dark">
+        <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&h=900&fit=crop" alt="Cocina con carpintería artesanal" loading="eager">
+        </div>
+        <div class="hero-vignette"></div>
+        <div class="hero-text">
+            <p class="hero-overline">Lakeland, Florida</p>
+            <h1 class="hero-title">
+                <span class="line">Carpintería</span>
+                <span class="line accent">de autor</span>
+            </h1>
+            <p class="hero-description">
+                Piezas únicas diseñadas para durar generaciones.<br>
+                Interiorismo en madera noble desde la tradición artesanal.
+            </p>
+            <div class="hero-ctas">
+                <a href="#contacto" class="btn btn-primary">Solicitar entrevista</a>
+                <a href="#trabajos" class="btn btn-ghost">Ver portafolio <i class="fas fa-arrow-down"></i></a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Desliza</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- FILOSOFÍA CON IMAGEN DE TALLER -->
+    <section id="filosofia" class="philosophy">
+        <div class="section-container">
+            <div class="philosophy-grid">
+                <div class="philosophy-image">
+                    <div class="image-frame">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&h=600&fit=crop" alt="Taller de carpintería artesanal" loading="lazy">
+                    </div>
+                </div>
+                <div class="philosophy-content">
+                    <p class="section-overline">Nuestra esencia</p>
+                    <h2>No fabricamos muebles.<br>Creamos legado.</h2>
+                    <p class="philosophy-text">
+                        Cada proyecto nace de una conversación. Escuchamos, medimos, dibujamos y seleccionamos
+                        personalmente cada tabla. El resultado no es un objeto: es la pieza que tus hijos
+                        recordarán.
+                    </p>
+                    <div class="philosophy-stats">
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Años de oficio</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">A medida</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Producción en serie</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRABAJOS CON IMÁGENES REALES -->
+    <section id="trabajos" class="works">
+        <div class="section-container">
+            <p class="section-overline">Portafolio</p>
+            <h2>Trabajos recientes</h2>
+            <div class="works-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="cocina">Cocinas</button>
+                <button class="filter-btn" data-filter="sala">Salas</button>
+                <button class="filter-btn" data-filter="comedor">Comedores</button>
+                <button class="filter-btn" data-filter="bano">Baños</button>
+                <button class="filter-btn" data-filter="recibidor">Recibidores</button>
+            </div>
+            <div class="works-grid">
+                <!-- 1. Cocina - Estanterías -->
+                <div class="work-card" data-category="cocina">
+                    <div class="work-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop" alt="Estanterías de cocina a medida" loading="lazy">
+                    </div>
+                    <div class="work-info">
+                        <h3>Estanterías Abiertas</h3>
+                        <p>Roble americano · Residencia Miller, Lakeland</p>
+                    </div>
+                </div>
+                <!-- 2. Sala - Centro entretenimiento -->
+                <div class="work-card" data-category="sala">
+                    <div class="work-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop" alt="Mueble de sala de estar" loading="lazy">
+                    </div>
+                    <div class="work-info">
+                        <h3>Centro Entretenimiento</h3>
+                        <p>Nogal negro · Villa Palmera, Lakeland</p>
+                    </div>
+                </div>
+                <!-- 3. Comedor - Vitrina -->
+                <div class="work-card" data-category="comedor">
+                    <div class="work-image">
+                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&h=400&fit=crop" alt="Vitrina de comedor artesanal" loading="lazy">
+                    </div>
+                    <div class="work-info">
+                        <h3>Vitrina Expositora</h3>
+                        <p>Cerezo macizo · Hacienda Lakes, Lakeland</p>
+                    </div>
+                </div>
+                <!-- 4. Baño - Gabinete -->
+                <div class="work-card" data-category="bano">
+                    <div class="work-image">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop" alt="Mueble de baño suspendido" loading="lazy">
+                    </div>
+                    <div class="work-info">
+                        <h3>Gabinete Suspendido</h3>
+                        <p>Arce tratado · Lakeside, Lakeland</p>
+                    </div>
+                </div>
+                <!-- 5. Recibidor - Consola -->
+                <div class="work-card" data-category="recibidor">
+                    <div class="work-image">
+                        <img src="https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg?w=600&h=400&fit=crop" alt="Consola de recibidor elegante" loading="lazy">
+                    </div>
+                    <div class="work-info">
+                        <h3>Consola de Entrada</h3>
+                        <p>Fresno europeo · Oakbridge, Lakeland</p>
+                    </div>
+                </div>
+                <!-- 6. Cocina - Alacena -->
+                <div class="work-card" data-category="cocina">
+                    <div class="work-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop" alt="Alacena de cocina personalizada" loading="lazy">
+                    </div>
+                    <div class="work-info">
+                        <h3>Alacena Integrada</h3>
+                        <p>Pino vintage recuperado · Historic District, Lakeland</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="services-dark">
+        <div class="section-container">
+            <p class="section-overline">Qué ofrecemos</p>
+            <h2>Servicios</h2>
+            <div class="services-list">
+                <div class="service-item-dark">
+                    <div class="service-number">01</div>
+                    <div class="service-content">
+                        <h3>Cocinas</h3>
+                        <p>Estanterías abiertas, islas centrales, despensas integradas y alacenas que transforman la cocina en el corazón del hogar.</p>
+                    </div>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-item-dark">
+                    <div class="service-number">02</div>
+                    <div class="service-content">
+                        <h3>Salas de estar</h3>
+                        <p>Muebles de soporte para TV, librerías modulares, estanterías flotantes y composiciones que abrazan la arquitectura.</p>
+                    </div>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-item-dark">
+                    <div class="service-number">03</div>
+                    <div class="service-content">
+                        <h3>Comedores</h3>
+                        <p>Aparadores, vitrinas expositoras, buffets y soluciones de almacenamiento que elevan cada cena.</p>
+                    </div>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-item-dark">
+                    <div class="service-number">04</div>
+                    <div class="service-content">
+                        <h3>Baños</h3>
+                        <p>Gabinetes suspendidos, organizadores ocultos y tocadores que fusionan funcionalidad húmeda con calidez natural.</p>
+                    </div>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-item-dark">
+                    <div class="service-number">05</div>
+                    <div class="service-content">
+                        <h3>Recibidores</h3>
+                        <p>Consolas de entrada, zapateros integrados, percheros artesanales y la primera impresión que tu hogar merece.</p>
+                    </div>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-item-dark">
+                    <div class="service-number">06</div>
+                    <div class="service-content">
+                        <h3>Habitaciones</h3>
+                        <p>Armarios empotrados, cabeceros tapizados con estructura de madera y sistemas de vestidor.</p>
+                    </div>
+                    <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso" class="process">
+        <div class="section-container">
+            <p class="section-overline">Cómo trabajamos</p>
+            <h2>Del boceto a la entrega</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-marker">1</div>
+                    <h3>Consulta</h3>
+                    <p>Visitamos tu espacio en Lakeland. Medimos, fotografiamos y escuchamos tu visión.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-marker">2</div>
+                    <h3>Diseño</h3>
+                    <p>Presentamos bocetos, muestras de madera y presupuesto detallado. Sin sorpresas.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-marker">3</div>
+                    <h3>Fabricación</h3>
+                    <p>Trabajamos cada pieza en nuestro taller con técnicas tradicionales y acabados naturales.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-marker">4</div>
+                    <h3>Instalación</h3>
+                    <p>Montaje in situ con protección de superficies y limpieza final. Tu hogar, impecable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="testimonials">
+        <div class="section-container">
+            <p class="section-overline">Clientes</p>
+            <h2>Lo que dicen</h2>
+            <div class="testimonials-carousel">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Transformó nuestra cocina por completo. Cada detalle pensado. El roble quedó espectacular."</p>
+                    <div class="testimonial-author">
+                        <strong>María G.</strong>
+                        <span>Residencia Miller, Lakeland</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"No es un carpintero, es un artesano. La consola del recibidor es la pieza favorita de nuestra casa."</p>
+                    <div class="testimonial-author">
+                        <strong>James & Linda R.</strong>
+                        <span>Oakbridge Estates, Lakeland</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Profesional, puntual y el presupuesto se respetó al centavo. Volveremos a llamarlo."</p>
+                    <div class="testimonial-author">
+                        <strong>Carlos H.</strong>
+                        <span>Historic District, Lakeland</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO CON FONDO DE TALLER -->
+    <section id="contacto" class="contact-dark">
+        <div class="contact-background">
+            <img src="https://images.unsplash.com/photo-1533090161767-e6ff986abffd?w=1600&h=900&fit=crop" alt="Taller de carpintería Lakeland" loading="lazy">
+        </div>
+        <div class="contact-overlay"></div>
+        <div class="section-container contact-container-relative">
+            <div class="contact-grid">
+                <div class="contact-info-dark">
+                    <p class="section-overline">Hablemos</p>
+                    <h2>Inicie su proyecto</h2>
+                    <p class="contact-intro">Cada gran espacio comienza con una conversación. Estamos en Lakeland, Florida y atendemos todo el condado de Polk.</p>
+                    <div class="contact-details-list">
+                        <div class="contact-detail-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <p class="detail-label">Teléfono</p>
+                                <a href="tel:+18631234567">(863) 123-4567</a>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <p class="detail-label">Correo</p>
+                                <a href="mailto:cubela@estudiocubela.com">cubela@estudiocubela.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fas fa-location-dot"></i>
+                            <div>
+                                <p class="detail-label">Taller y visitas</p>
+                                <p>Lakeland, FL 33801</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-guarantee">
+                    <div class="guarantee-card">
+                        <i class="fas fa-shield-halved"></i>
+                        <h3>Presupuesto cerrado</h3>
+                        <p>Sin costes ocultos. Sin sorpresas.</p>
+                    </div>
+                    <div class="guarantee-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Respuesta en 24h</h3>
+                        <p>Valoramos su tiempo tanto como el nuestro.</p>
+                    </div>
+                    <div class="guarantee-card">
+                        <i class="fas fa-medal"></i>
+                        <h3>Garantía de 5 años</h3>
+                        <p>Sobre estructura y acabados en interior.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-dark">
+        <div class="section-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#hero" class="footer-logo">Estudio<span>Cubela</span></a>
+                    <p>Carpintería artesanal de interior en Lakeland, Florida. Desde 2009 creando piezas únicas que perduran.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#filosofia">Filosofía</a></li>
+                        <li><a href="#trabajos">Portafolio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#proceso">Proceso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#servicios">Cocinas</a></li>
+                        <li><a href="#servicios">Salas de estar</a></li>
+                        <li><a href="#servicios">Baños</a></li>
+                        <li><a href="#servicios">Recibidores</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Estudio Cubela · Lakeland, FL · Todos los derechos reservados</p>
+                <p class="footer-disclaimer">Imágenes de muestra de Unsplash y Pexels. Próximamente: Fotografías reales de proyectos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

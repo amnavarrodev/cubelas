@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Pequeña Princesa ✨</title>
+    <style>
+        :root {
+            --rosa-suave: #ffd6e0;
+            --rosa-medio: #ffb3c6;
+            --rosa-fuerte: #ff8fab;
+            --lavanda: #e4d4f4;
+            --lavanda-oscura: #c9b1e0;
+            --menta: #c1e8e0;
+            --menta-oscura: #a3d5cb;
+            --amarillo: #fff3c4;
+            --dorado: #f7d794;
+            --blanco: #fffdfb;
+            --texto: #5c4b51;
+            --texto-claro: #8b7b80;
+            --sombra: 0 8px 32px rgba(180, 150, 160, 0.18);
+            --sombra-hover: 0 16px 40px rgba(180, 140, 155, 0.28);
+            --borde-redondo: 24px;
+            --transicion: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Nunito', 'Helvetica Neue', system-ui, sans-serif;
+            background: linear-gradient(170deg, #fef5f9 0%, #fdf2f8 25%, #f8f0fa 50%, #f0f7f5 75%, #fef9f3 100%);
+            background-attachment: fixed;
+            color: var(--texto);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ── Partículas decorativas flotantes ── */
+        .particulas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .particula {
+            position: absolute;
+            animation: flotar var(--duracion) ease-in-out infinite;
+            animation-delay: var(--retraso);
+            opacity: 0.55;
+            font-size: var(--tamano);
+            filter: blur(0.4px);
+            user-select: none;
+        }
+        @keyframes flotar {
+            0%,
+            100% {
+                transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+            }
+            15% {
+                transform: translateY(-35px) translateX(14px) rotate(6deg) scale(1.08);
+            }
+            30% {
+                transform: translateY(-18px) translateX(-10px) rotate(-4deg) scale(0.94);
+            }
+            50% {
+                transform: translateY(-50px) translateX(22px) rotate(10deg) scale(1.12);
+            }
+            65% {
+                transform: translateY(-28px) translateX(-18px) rotate(-7deg) scale(0.96);
+            }
+            80% {
+                transform: translateY(-8px) translateX(8px) rotate(3deg) scale(1.03);
+            }
+        }
+
+        /* ── Contenedor principal ── */
+        .contenido-principal {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 24px 50px;
+        }
+
+        /* ── Header ── */
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            position: relative;
+        }
+        .header-corona {
+            font-size: 60px;
+            animation: balanceo 2.6s ease-in-out infinite;
+            display: inline-block;
+            filter: drop-shadow(0 6px 12px rgba(255, 180, 130, 0.5));
+        }
+        @keyframes balanceo {
+            0%,
+            100% {
+                transform: rotate(-5deg) translateY(0);
+            }
+            50% {
+                transform: rotate(5deg) translateY(-12px);
+            }
+        }
+        .header h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #e88da5, #c48fd6, #e88da5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 8px 0 4px;
+            line-height: 1.25;
+        }
+        .header .subtitulo {
+            font-size: 1.15rem;
+            color: var(--texto-claro);
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .subtitulo span {
+            background: var(--blanco);
+            padding: 6px 16px;
+            border-radius: 50px;
+            box-shadow: 0 3px 14px rgba(200, 170, 185, 0.2);
+            font-size: 0.95rem;
+        }
+
+        /* ── Línea decorativa ── */
+        .divisor-tierno {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 16px 0 10px;
+            flex-wrap: wrap;
+        }
+        .divisor-tierno .linea {
+            height: 2px;
+            width: 60px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, transparent, var(--rosa-medio), transparent);
+        }
+        .divisor-tierno .icono {
+            font-size: 1.6rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+        /* ── Navegación de filtros ── */
+        .filtros {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 28px 0 32px;
+        }
+        .filtro-btn {
+            background: var(--blanco);
+            border: 2px solid transparent;
+            padding: 10px 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--texto);
+            transition: var(--transicion);
+            box-shadow: 0 3px 12px rgba(180, 150, 165, 0.12);
+            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+        }
+        .filtro-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--rosa-suave), var(--lavanda));
+            opacity: 0;
+            transition: opacity var(--transicion);
+            z-index: -1;
+        }
+        .filtro-btn:hover::after,
+        .filtro-btn.activo::after {
+            opacity: 1;
+        }
+        .filtro-btn:hover,
+        .filtro-btn.activo {
+            border-color: var(--rosa-medio);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-hover);
+            color: #8b3a55;
+        }
+        .filtro-btn.activo {
+            border-color: var(--rosa-fuerte);
+            font-weight: 700;
+        }
+
+        /* ── Galería ── */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 4px;
+        }
+        .foto-item {
+            position: relative;
+            border-radius: var(--borde-redondo);
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+            aspect-ratio: 4 / 5;
+            background: var(--blanco);
+            group: true;
+        }
+        .foto-item:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: var(--sombra-hover);
+            z-index: 2;
+        }
+        .foto-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .foto-item:hover img {
+            transform: scale(1.07);
+        }
+        .foto-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent 0%, rgba(120, 70, 90, 0.55) 60%, rgba(100, 50, 70, 0.78) 100%);
+            color: #fff;
+            padding: 28px 16px 14px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transicion);
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 6px;
+        }
+        .foto-item:hover .overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .foto-item .corazon-esquina {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: var(--transicion);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            pointer-events: none;
+        }
+        .foto-item:hover .corazon-esquina {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ── Lightbox ── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(60, 30, 42, 0.88);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .lightbox.activo {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 80vh;
+            border-radius: 20px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+            object-fit: contain;
+            animation: zoomIn 0.35s ease;
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .lightbox-cerrar {
+            position: absolute;
+            top: 24px;
+            right: 30px;
+            font-size: 2.6rem;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1001;
+            transition: transform 0.25s;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+        .lightbox-cerrar:hover {
+            transform: scale(1.2) rotate(90deg);
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transicion);
+            user-select: none;
+        }
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        .lightbox-prev {
+            left: 20px;
+        }
+        .lightbox-next {
+            right: 20px;
+        }
+        .lightbox-contador {
+            color: #fff;
+            margin-top: 16px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            padding: 40px 20px 20px;
+            color: var(--texto-claro);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+        .footer .estrellitas {
+            font-size: 1.4rem;
+            letter-spacing: 8px;
+            margin-bottom: 8px;
+        }
+        .footer p {
+            margin: 4px 0;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .galeria {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 12px;
+            }
+            .foto-item {
+                border-radius: 16px;
+            }
+            .header h1 {
+                font-size: 1.9rem;
+            }
+            .header-corona {
+                font-size: 42px;
+            }
+            .filtro-btn {
+                padding: 8px 16px;
+                font-size: 0.82rem;
+            }
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 2rem;
+            }
+            .lightbox-prev {
+                left: 8px;
+            }
+            .lightbox-next {
+                right: 8px;
+            }
+        }
+        @media (max-width: 400px) {
+            .galeria {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .foto-item {
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Partículas decorativas flotantes -->
+    <div class="particulas-container" id="particulas"></div>
+
+    <!-- Contenido principal -->
+    <div class="contenido-principal">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-corona">👑</div>
+            <h1>Mi Pequeña Princesa</h1>
+            <div class="divisor-tierno">
+                <span class="linea"></span>
+                <span class="icono">🌸</span>
+                <span class="linea"></span>
+                <span class="icono">🎀</span>
+                <span class="linea"></span>
+            </div>
+            <p class="subtitulo">
+                <span>💖 3 meses de amor</span>
+                <span>🌟 Pura ternura</span>
+            </p>
+        </header>
+
+        <!-- Filtros -->
+        <div class="filtros">
+            <button class="filtro-btn activo" data-filtro="todas">✨ Todas</button>
+            <button class="filtro-btn" data-filtro="sonrisas">😊 Sonrisas</button>
+            <button class="filtro-btn" data-filtro="dormida">🌙 Dormidita</button>
+            <button class="filtro-btn" data-filtro="familia">👨‍👩‍👧 En familia</button>
+            <button class="filtro-btn" data-filtro="detalles">🦶 Detallitos</button>
+        </div>
+
+        <!-- Galería -->
+        <div class="galeria" id="galeria">
+            <!-- Las imágenes se generan con JS para facilitar el cambio -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="estrellitas">✦ ✦ ✦ ✦ ✦</div>
+            <p>Con todo el amor del mundo 💕</p>
+            <p style="font-size:0.8rem;opacity:0.7;">Cada día es una nueva aventura contigo</p>
+        </footer>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-cerrar" id="lightboxCerrar">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+        <img src="" alt="Foto ampliada" id="lightboxImg">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+        <div class="lightbox-contador" id="lightboxContador"></div>
+    </div>
+
+    <script>
+        (function() {
+            // ═══════════════════════════════════════
+            // 📸 AQUÍ PONES LAS FOTOS DE LA BEBÉ 📸
+            // Cambia las URLs por las fotos reales.
+            // ═══════════════════════════════════════
+            const fotos = [
+                // [ url_de_la_foto, categoría, pie_de_foto ]
+                {
+                    url: 'https://placehold.co/500x620/FFD1DC/FF69B4?text=🌷+Bebé+1',
+                    categoria: 'todas',
+                    pie: 'Mi primera sonrisa 🌸'
+                },
+                {
+                    url: 'https://placehold.co/500x620/FFE4E1/FF85A2?text=🎀+Bebé+2',
+                    categoria: 'sonrisas',
+                    pie: 'Radiante de alegría ✨'
+                },
+                {
+                    url: 'https://placehold.co/500x620/E6E6FA/C8A2D6?text=🌙+Bebé+3',
+                    categoria: 'dormida',
+                    pie: 'Dulces sueños 💤'
+                },
+                {
+                    url: 'https://placehold.co/500x620/B2DFDB/6DB3A8?text=🧸+Bebé+4',
+                    categoria: 'familia',
+                    pie: 'En brazos de mamá 🤱'
+                },
+                {
+                    url: 'https://placehold.co/500x620/FFF9C4/F0C060?text=🌟+Bebé+5',
+                    categoria: 'sonrisas',
+                    pie: 'Carcajada contagiosa 😄'
+                },
+                {
+                    url: 'https://placehold.co/500x620/FFD1DC/E890A0?text=🦶+Bebé+6',
+                    categoria: 'detalles',
+                    pie: 'Piececitos de algodón 🦶'
+                },
+                {
+                    url: 'https://placehold.co/500x620/D8BFD8/C090C0?text=🍼+Bebé+7',
+                    categoria: 'dormida',
+                    pie: 'Siesta de tarde ☁️'
+                },
+                {
+                    url: 'https://placehold.co/500x620/FFE4E1/FFB3C1?text=💝+Bebé+8',
+                    categoria: 'familia',
+                    pie: 'Con papá, mi héroe 🦸‍♂️'
+                },
+                {
+                    url: 'https://placehold.co/500x620/E0F7FA/80CBC4?text=🌼+Bebé+9',
+                    categoria: 'detalles',
+                    pie: 'Manitas curiosas 👐'
+                },
+                {
+                    url: 'https://placehold.co/500x620/FFF3E0/FFB74D?text=🎂+Bebé+10',
+                    categoria: 'sonrisas',
+                    pie: 'Feliz y contenta 🥰'
+                },
+                {
+                    url: 'https://placehold.co/500x620/FCE4EC/F48FB1?text=💤+Bebé+11',
+                    categoria: 'dormida',
+                    pie: 'En mi cunita 🛏️'
+                },
+                {
+                    url: 'https://placehold.co/500x620/E8EAF6/9FA8DA?text=👶+Bebé+12',
+                    categoria: 'familia',
+                    pie: 'Amor de familia 💕'
+                },
+            ];
+
+            // ── Referencias ──
+            const galeriaEl = document.getElementById('galeria');
+            const filtrosBtns = document.querySelectorAll('.filtro-btn');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCerrar = document.getElementById('lightboxCerrar');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+            const lightboxContador = document.getElementById('lightboxContador');
+
+            let fotosFiltradas = [...fotos];
+            let indiceLightbox = 0;
+            let filtroActivo = 'todas';
+
+            // ── Renderizar galería ──
+            function renderizarGaleria(filtro) {
+                fotosFiltradas = filtro === 'todas' ?
+                    [...fotos] :
+                    fotos.filter(f => f.categoria === filtro || f.categoria === 'todas');
+
+                // Si no hay fotos en esa categoría, mostrar todas
+                if (fotosFiltradas.length === 0) fotosFiltradas = [...fotos];
+
+                galeriaEl.innerHTML = fotosFiltradas.map((foto, idx) => `
+                        <div class="foto-item" data-indice="${idx}" data-categoria="${foto.categoria}">
+                            <img src="${foto.url}" alt="${foto.pie}" loading="lazy" />
+                            <div class="overlay">${foto.pie}</div>
+                            <div class="corazon-esquina">💖</div>
+                        </div>
+                    `).join('');
+
+                // Asignar eventos de clic a cada foto
+                document.querySelectorAll('.foto-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const idx = parseInt(this.getAttribute('data-indice'));
+                        abrirLightbox(idx);
+                    });
+                });
+            }
+
+            // ── Lightbox ──
+            function abrirLightbox(indice) {
+                indiceLightbox = indice;
+                actualizarLightbox();
+                lightbox.classList.add('activo');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function cerrarLightbox() {
+                lightbox.classList.remove('activo');
+                document.body.style.overflow = '';
+            }
+
+            function actualizarLightbox() {
+                if (fotosFiltradas.length === 0) return;
+                // Asegurar índice dentro de rango
+                indiceLightbox = ((indiceLightbox % fotosFiltradas.length) + fotosFiltradas.length) %
+                    fotosFiltradas.length;
+                const foto = fotosFiltradas[indiceLightbox];
+                lightboxImg.src = foto.url;
+                lightboxImg.alt = foto.pie;
+                lightboxContador.textContent = `${indiceLightbox + 1} / ${fotosFiltradas.length}  —  ${foto.pie}`;
+            }
+
+            function lightboxSiguiente() {
+                indiceLightbox++;
+                actualizarLightbox();
+            }
+
+            function lightboxAnterior() {
+                indiceLightbox--;
+                actualizarLightbox();
+            }
+
+            // Eventos lightbox
+            lightboxCerrar.addEventListener('click', cerrarLightbox);
+            lightboxNext.addEventListener('click', lightboxSiguiente);
+            lightboxPrev.addEventListener('click', lightboxAnterior);
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) cerrarLightbox();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('activo')) return;
+                if (e.key === 'Escape') cerrarLightbox();
+                if (e.key === 'ArrowRight') lightboxSiguiente();
+                if (e.key === 'ArrowLeft') lightboxAnterior();
+            });
+
+            // ── Filtros ──
+            filtrosBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filtrosBtns.forEach(b => b.classList.remove('activo'));
+                    this.classList.add('activo');
+                    filtroActivo = this.getAttribute('data-filtro');
+                    renderizarGaleria(filtroActivo);
+                });
+            });
+
+            // ── Generar partículas decorativas ──
+            function generarParticulas() {
+                const container = document.getElementById('particulas');
+                const emojis = ['🌸', '💖', '✨', '🎀', '🌷', '🦋', '💫', '☁️', '⭐', '🧸', '💝', '🌼', '🍼', '🐣'];
+                const fragment = document.createDocumentFragment();
+                for (let i = 0; i < 28; i++) {
+                    const span = document.createElement('span');
+                    span.classList.add('particula');
+                    span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    span.style.setProperty('--duracion', (8 + Math.random() * 16) + 's');
+                    span.style.setProperty('--retraso', (Math.random() * 10) + 's');
+                    span.style.setProperty('--tamano', (1 + Math.random() * 2.2) + 'rem');
+                    span.style.left = Math.random() * 94 + '%';
+                    span.style.top = Math.random() * 90 + '%';
+                    fragment.appendChild(span);
+                }
+                container.appendChild(fragment);
+            }
+
+            // ── Inicializar ──
+            function init() {
+                generarParticulas();
+                renderizarGaleria('todas');
+            }
+
+            init();
+        })();
+    </script>
+</body>
+</html>
